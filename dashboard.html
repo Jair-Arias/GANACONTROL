@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Control - GanaControl</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen relative">
+
+  <!-- Fondo con desvanecido -->
+  <div class="absolute inset-0 bg-black/40 z-0"></div>
+  <div class="absolute inset-0 bg-cover bg-center z-[-1]" 
+       style="background-image: url('img/fondo-dashboard.jpeg');"></div>
+
+  <!-- Logo redondo esquina izquierda -->
+  <div class="absolute top-4 left-4 z-10">
+    <img src="img/logo.jpeg" alt="Logo GanaControl" 
+         class="h-16 w-16 rounded-full shadow-lg border-2 border-white">
+  </div>
+
+  <!-- Menú usuario esquina derecha -->
+  <div class="absolute top-4 right-4 z-10">
+    <div class="relative">
+      <button id="userMenuBtn">
+        <img src="img/usuario.png" alt="Usuario" 
+             class="h-14 w-14 rounded-full border-2 border-white shadow-md cursor-pointer">
+      </button>
+      <div id="userMenu" 
+           class="hidden absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-xl py-2 z-50">
+        <p class="px-4 py-2 font-semibold text-gray-700">Configuración</p>
+        <hr>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Nombre Usuario</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Rol</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Idioma</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Papelera</a>
+        <hr>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Ventas</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Vacunación</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buscador centrado superior -->
+  <div class="absolute top-6 left-1/2 transform -translate-x-1/2 w-1/3 z-10">
+    <input type="text" placeholder="Buscar..." 
+           class="w-full px-4 py-2 rounded-full shadow-md border border-gray-300 focus:ring-2 focus:ring-green-500 focus:outline-none">
+  </div>
+
+  <!-- Contenido central -->
+  <main class="flex flex-col items-center justify-start h-full pt-28 space-y-8">
+    
+    <!-- Recuadro central de movimientos -->
+    <div class="bg-white/80 backdrop-blur-sm w-3/4 h-60 rounded-2xl shadow-2xl p-6 overflow-y-auto">
+      <h2 class="text-2xl font-bold text-gray-700 mb-4 text-center">Movimientos Recientes</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li>✅ Vacunación registrada en el lote 1</li>
+        <li>📦 Inventario actualizado: 10 sacos de concentrado</li>
+        <li>💰 Venta registrada: 2 litros de leche</li>
+        <li>🌱 Reproducción programada para la vaca #23</li>
+      </ul>
+    </div>
+
+    <!-- Botones organizados en grid -->
+    <div class="grid grid-cols-3 gap-6 w-3/4">
+      <button class="w-full px-8 py-4 bg-white/80 rounded-xl border border-black font-semibold shadow-md hover:bg-gray-100">
+        Vacunaciones
+      </button>
+      <button class="w-full px-8 py-4 bg-white/80 rounded-xl border border-black font-semibold shadow-md hover:bg-gray-100">
+        Reproducción
+      </button>
+      <button class="w-full px-8 py-4 bg-white/80 rounded-xl border border-black font-semibold shadow-md hover:bg-gray-100">
+        Alimentación
+      </button>
+      <button class="w-full px-8 py-4 bg-white/80 rounded-xl border border-black font-semibold shadow-md hover:bg-gray-100">
+        Producción
+      </button>
+      <button class="w-full px-8 py-4 bg-white/80 rounded-xl border border-black font-semibold shadow-md hover:bg-gray-100">
+        Inventario
+      </button>
+      <button class="w-full px-8 py-4 bg-white/80 rounded-xl border border-black font-semibold shadow-md hover:bg-gray-100">
+        Ventas
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Script menú -->
+  <script>
+    const userMenuBtn = document.getElementById('userMenuBtn');
+    const userMenu = document.getElementById('userMenu');
+
+    userMenuBtn.addEventListener('click', () => {
+      userMenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!userMenuBtn.contains(e.target) && !userMenu.contains(e.target)) {
+        userMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
+
