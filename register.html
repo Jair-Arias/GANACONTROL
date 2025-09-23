@@ -5,72 +5,73 @@
   <title>Registro - GanaControl</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="h-screen relative">
+<body class="relative min-h-screen flex flex-col">
 
-  <!-- Imagen de fondo con overlay -->
-  <div class="absolute inset-0">
-    <img src="img/fondo-register.jpeg" 
-         class="w-full h-full object-cover brightness-75" alt="Fondo ganado">
+  <!-- Fondo elegante con overlay -->
+  <div class="fixed inset-0 z-[-10]">
+    <img src="img/fondo-register.jpeg" alt="Fondo ganado" 
+         class="w-full h-full object-cover filter brightness-75 blur-sm">
   </div>
 
-  <!-- Logo redondo esquina superior izquierda -->
+  <!-- Logo superior izquierdo -->
   <div class="absolute top-6 left-6 z-10">
     <img src="img/logo.jpeg" alt="Logo GanaControl" 
          class="h-20 w-20 rounded-full shadow-lg border-2 border-white">
   </div>
 
-  <!-- Contenido en dos columnas -->
-  <div class="relative z-10 flex items-center justify-center h-full px-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
+  <!-- Contenedor principal centrado con más espacio superior -->
+<div class="relative z-10 flex-1 flex items-start justify-center px-6 pt-10">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-5xl">
 
-      <!-- Columna izquierda: Frases -->
-    <div class="flex flex-col justify-center text-white space-y-4">
-    <h1 class="text-5xl font-extrabold drop-shadow-lg text-center">¡Bienvenidos!</h1>
-    <p class="text-lg drop-shadow-lg text-center max-w-md mx-auto">
-      Bienvenido a GanaControl, regístrate y lleva el control de tu finca ganadera.
-    </p>
+    <!-- Columna izquierda: Mensaje de bienvenida -->
+    <div class="flex flex-col justify-center text-white space-y-6">
+      <h1 class="text-5xl font-extrabold drop-shadow-lg text-center md:text-left">¡Bienvenido a GanaControl!</h1>
+      <p class="text-lg drop-shadow-lg text-center md:text-left max-w-md">
+        Regístrate y lleva el control total de tu finca ganadera con nuestro sistema profesional.
+      </p>
     </div>
 
+    <!-- Columna derecha: Formulario elegante -->
+    <div class="bg-black/50 backdrop-blur-md rounded-3xl shadow-2xl p-10 flex flex-col justify-center border border-white/20">
+      <h2 class="text-3xl font-bold text-center mb-8 text-green-700 drop-shadow-lg">Crear Cuenta</h2>
 
-      <!-- Columna derecha: Formulario -->
-      <div class="bg-white/80 backdrop-blur-md rounded-2xl shadow-2xl p-8 flex flex-col justify-center">
-        <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Crear Cuenta</h2>
+      <form class="flex flex-col gap-5">
+        <input type="text" placeholder="Nombre Completo"
+               class="px-5 py-3 rounded-full border border-white/30 bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 transition">
 
-        <form class="flex flex-col gap-4">
-          <input type="text" placeholder="Nombre Completo"
-                 class="px-4 py-2 rounded-full border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-green-500">
+        <input type="email" placeholder="Correo Electrónico"
+               class="px-5 py-3 rounded-full border border-white/30 bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 transition">
 
-          <input type="email" placeholder="Correo Electrónico"
-                 class="px-4 py-2 rounded-full border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-green-500">
+        <input type="password" placeholder="Contraseña"
+               class="px-5 py-3 rounded-full border border-white/30 bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 transition">
 
-          <input type="password" placeholder="Contraseña"
-                 class="px-4 py-2 rounded-full border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-green-500">
+        <input type="password" placeholder="Confirmar Contraseña"
+               class="px-5 py-3 rounded-full border border-white/30 bg-white/10 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400 transition">
 
-          <input type="password" placeholder="Confirmar Contraseña"
-                 class="px-4 py-2 rounded-full border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-green-500">
-
-        <!-- Botón Registrarse -->
         <button type="button" 
                 onclick="alert('✅ Has sido registrado con éxito'); window.location.href='enter.html';" 
-                class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold">
-        Registrarse
+                class="px-6 py-3 bg-green-700 text-white rounded-full hover:bg-green-800 font-semibold shadow-md transition transform hover:-translate-y-0.5">
+          Registrarse
         </button>
+      </form>
 
+      <p class="mt-6 text-sm text-center text-gray-300">
+        ¿Ya tienes cuenta? 
+        <a href="login.html" class="text-green-400 font-semibold hover:underline">Inicia sesión</a>
+      </p>
 
-
-        <!-- Link iniciar sesión -->
-        <p class="mt-4 text-sm text-center text-gray-700">
-          ¿Ya tienes cuenta? 
-          <a href="login.html" class="font-semibold underline text-green-700">Inicia sesión</a>
-        </p>
-
-        <!-- Términos -->
-        <p class="mt-2 text-xs italic text-center text-gray-600">
-          Al registrarte aceptas nuestros Términos y Condiciones
-        </p>
-      </div>
+      <p class="mt-2 text-xs italic text-center text-gray-400">
+        Al registrarte aceptas nuestros Términos y Condiciones
+      </p>
     </div>
   </div>
+</div>
+
+
+  <!-- Footer transparente al final -->
+  <footer class="w-full text-white text-center py-6 mt-auto z-10">
+    &copy; 2025 GanaControl - Todos los derechos reservados
+  </footer>
 
 </body>
 </html>
