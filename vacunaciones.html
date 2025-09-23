@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Vacunaciones - GanaControl</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen relative">
+
+  <!-- Fondo -->
+  <div class="absolute inset-0 bg-black/40 z-0"></div>
+  <div class="absolute inset-0 bg-cover bg-center z-[-1]" 
+       style="background-image: url('img/fondo-vacunacion.jpeg');"></div>
+
+  <!-- Contenido -->
+  <main class="flex flex-col items-center justify-start h-full pt-16">
+    
+    <!-- Título -->
+    <h1 class="text-3xl font-bold text-white mb-6">Vacunación y Salud Animal</h1>
+
+    <!-- Recuadro central -->
+    <div class="bg-white/90 backdrop-blur-sm w-4/5 rounded-2xl shadow-2xl p-6">
+      
+      <!-- Próximas vacunas -->
+      <h2 class="text-xl font-semibold mb-4">Próximas Vacunas</h2>
+      <table class="w-full border mb-6">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="p-2 border">Animal</th>
+            <th class="p-2 border">Fecha</th>
+            <th class="p-2 border">Vacuna</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="p-2 border">Animal#1023</td>
+            <td class="p-2 border">02/09/2025</td>
+            <td class="p-2 border">Carbunco</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Registrar nueva vacuna -->
+      <h2 class="text-xl font-semibold mb-4">Registrar Nueva Vacuna</h2>
+      <form class="grid grid-cols-2 gap-4">
+        <select class="border p-2 rounded">
+          <option>Seleccionar Animal</option>
+          <option>Animal 1</option>
+          <option>Animal 2</option>
+        </select>
+        <select class="border p-2 rounded">
+          <option>Tipo de Vacuna</option>
+          <option>Fiebre Aftosa</option>
+          <option>Brucelosis</option>
+          <option>Carbunco</option>
+        </select>
+        <input type="date" class="border p-2 rounded">
+        <input type="text" placeholder="Responsable" class="border p-2 rounded">
+        <textarea placeholder="Observaciones" class="border p-2 rounded col-span-2"></textarea>
+        <button type="submit" class="bg-green-600 text-white py-2 rounded col-span-2 hover:bg-green-700">
+          Guardar
+        </button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
