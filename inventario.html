@@ -37,11 +37,12 @@
 
       <form class="grid grid-cols-2 gap-6" enctype="multipart/form-data">
         <!-- Código -->
-        <input type="text" placeholder="Código del producto (ej: G001)" class="p-3 border rounded-lg shadow-sm">
+        <input type="text" placeholder="Código del producto (ej: G001)" 
+               class="p-3 border rounded-lg shadow-sm inventario-codigo">
 
         <!-- Categoría -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Categoría</option>
+        <select class="p-3 border rounded-lg shadow-sm inventario-categoria">
+          <option value="">Categoría</option>
           <option>Ganado</option>
           <option>Insumos agrícolas</option>
           <option>Medicamentos veterinarios</option>
@@ -55,11 +56,12 @@
         </select>
 
         <!-- Nombre -->
-        <input type="text" placeholder="Nombre del producto / ítem" class="p-3 border rounded-lg shadow-sm">
+        <input type="text" placeholder="Nombre del producto / ítem" 
+               class="p-3 border rounded-lg shadow-sm inventario-nombre">
 
         <!-- Tipo de movimiento -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Tipo de movimiento</option>
+        <select class="p-3 border rounded-lg shadow-sm inventario-movimiento">
+          <option value="">Tipo de movimiento</option>
           <option>Ingreso</option>
           <option>Salida</option>
           <option>Robo</option>
@@ -70,9 +72,10 @@
         </select>
 
         <!-- Cantidad -->
-        <input type="number" placeholder="Cantidad" class="p-3 border rounded-lg shadow-sm">
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Unidad</option>
+        <input type="number" placeholder="Cantidad" 
+               class="p-3 border rounded-lg shadow-sm inventario-cantidad">
+        <select class="p-3 border rounded-lg shadow-sm inventario-unidad">
+          <option value="">Unidad</option>
           <option>Kilos</option>
           <option>Litros</option>
           <option>Unidades</option>
@@ -82,17 +85,20 @@
         </select>
 
         <!-- Fechas -->
-        <input type="date" class="p-3 border rounded-lg shadow-sm" placeholder="Fecha de Ingreso">
-        <input type="date" class="p-3 border rounded-lg shadow-sm" placeholder="Fecha de Salida">
+        <input type="date" class="p-3 border rounded-lg shadow-sm inventario-fecha-ingreso" placeholder="Fecha de Ingreso">
+        <input type="date" class="p-3 border rounded-lg shadow-sm inventario-fecha-salida" placeholder="Fecha de Salida">
 
         <!-- Proveedor y responsable -->
-        <input type="text" placeholder="Proveedor" class="p-3 border rounded-lg shadow-sm">
-        <input type="text" placeholder="Responsable de registro" class="p-3 border rounded-lg shadow-sm">
+        <input type="text" placeholder="Proveedor" 
+               class="p-3 border rounded-lg shadow-sm inventario-proveedor">
+        <input type="text" placeholder="Responsable de registro" 
+               class="p-3 border rounded-lg shadow-sm inventario-responsable">
 
         <!-- Stock mínimo y ubicación -->
-        <input type="number" placeholder="Stock mínimo" class="p-3 border rounded-lg shadow-sm">
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Ubicación en finca</option>
+        <input type="number" placeholder="Stock mínimo" 
+               class="p-3 border rounded-lg shadow-sm inventario-stock-minimo">
+        <select class="p-3 border rounded-lg shadow-sm inventario-ubicacion">
+          <option value="">Ubicación en finca</option>
           <option>Bodega principal</option>
           <option>Corral</option>
           <option>Cuarto frío</option>
@@ -101,10 +107,10 @@
         </select>
 
         <!-- Comprobante -->
-        <input type="file" class="col-span-2 p-3 border rounded-lg shadow-sm bg-gray-50" accept="image/*,application/pdf">
+        <input type="file" class="col-span-2 p-3 border rounded-lg shadow-sm bg-gray-50 inventario-comprobante" accept="image/*,application/pdf">
 
         <!-- Observaciones -->
-        <textarea class="col-span-2 p-3 border rounded-lg shadow-sm" placeholder="Observaciones adicionales..."></textarea>
+        <textarea class="col-span-2 p-3 border rounded-lg shadow-sm inventario-observaciones" placeholder="Observaciones adicionales..."></textarea>
 
         <!-- Botones -->
         <div class="col-span-2 flex gap-6 justify-center mt-6">
@@ -190,7 +196,11 @@
     &copy; 2025 GanaControl - Todos los derechos reservados
   </footer>
 
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
+
   <script>
+    // Funciones del modal (mantenidas para compatibilidad)
     function abrirHistorial() {
       document.getElementById("modalHistorial").classList.remove("hidden");
       document.getElementById("modalHistorial").classList.add("flex");
@@ -207,5 +217,4 @@
 
 </body>
 </html>
-
 

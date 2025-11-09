@@ -37,15 +37,15 @@
 
       <form class="grid grid-cols-2 gap-6">
         <!-- Tipo de venta -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Seleccionar tipo de venta</option>
+        <select class="p-3 border rounded-lg shadow-sm ventas-tipo">
+          <option value="">Seleccionar tipo de venta</option>
           <option>Producto</option>
           <option>Animal</option>
         </select>
 
         <!-- Producto/Animal -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Seleccionar producto o animal</option>
+        <select class="p-3 border rounded-lg shadow-sm ventas-producto">
+          <option value="">Seleccionar producto o animal</option>
           <option>Heno</option>
           <option>Forraje</option>
           <option>Concentrado</option>
@@ -56,34 +56,34 @@
         </select>
 
         <!-- Cantidad -->
-        <input type="number" placeholder="Cantidad" class="p-3 border rounded-lg shadow-sm">
+        <input type="number" placeholder="Cantidad" class="p-3 border rounded-lg shadow-sm ventas-cantidad">
 
         <!-- Unidad -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Unidad</option>
+        <select class="p-3 border rounded-lg shadow-sm ventas-unidad">
+          <option value="">Unidad</option>
           <option>Kilos</option>
           <option>Litros</option>
           <option>Sacos</option>
         </select>
 
         <!-- Precio unitario -->
-        <input type="number" placeholder="Precio unitario" class="p-3 border rounded-lg shadow-sm">
+        <input type="number" placeholder="Precio unitario" class="p-3 border rounded-lg shadow-sm ventas-precio">
 
         <!-- Total -->
-        <input type="number" placeholder="Total" class="p-3 border rounded-lg shadow-sm bg-gray-100" readonly>
+        <input type="number" placeholder="Total" class="p-3 border rounded-lg shadow-sm bg-gray-100 ventas-total" readonly>
 
         <!-- Cliente -->
-        <input type="text" placeholder="Nombre del cliente" class="p-3 border rounded-lg shadow-sm">
+        <input type="text" placeholder="Nombre del cliente" class="p-3 border rounded-lg shadow-sm ventas-cliente">
 
         <!-- Fecha -->
-        <input type="date" class="p-3 border rounded-lg shadow-sm">
+        <input type="date" class="p-3 border rounded-lg shadow-sm ventas-fecha">
 
         <!-- Responsable -->
-        <input type="text" placeholder="Responsable de la venta" class="p-3 border rounded-lg shadow-sm">
+        <input type="text" placeholder="Responsable de la venta" class="p-3 border rounded-lg shadow-sm ventas-responsable">
 
         <!-- Tipo de pago -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Tipo de pago</option>
+        <select class="p-3 border rounded-lg shadow-sm ventas-pago">
+          <option value="">Tipo de pago</option>
           <option>Efectivo</option>
           <option>Transferencia</option>
           <option>Tarjeta</option>
@@ -91,21 +91,21 @@
         </select>
 
         <!-- Entrega -->
-        <select class="p-3 border rounded-lg shadow-sm">
-          <option>Forma de entrega</option>
+        <select class="p-3 border rounded-lg shadow-sm ventas-entrega">
+          <option value="">Forma de entrega</option>
           <option>Entrega inmediata</option>
           <option>Recogida en finca</option>
           <option>Envío programado</option>
         </select>
 
         <!-- Descuento -->
-        <input type="number" placeholder="Descuento (%)" class="p-3 border rounded-lg shadow-sm">
+        <input type="number" placeholder="Descuento (%)" class="p-3 border rounded-lg shadow-sm ventas-descuento">
 
         <!-- Impuesto -->
-        <input type="number" placeholder="Impuesto (%)" class="p-3 border rounded-lg shadow-sm">
+        <input type="number" placeholder="Impuesto (%)" class="p-3 border rounded-lg shadow-sm ventas-impuesto">
 
         <!-- Observaciones -->
-        <textarea class="col-span-2 p-3 border rounded-lg shadow-sm" placeholder="Motivo, detalles o comentarios"></textarea>
+        <textarea class="col-span-2 p-3 border rounded-lg shadow-sm ventas-observaciones" placeholder="Motivo, detalles o comentarios"></textarea>
 
         <!-- Botones -->
         <div class="col-span-2 flex justify-center gap-6 mt-4">
@@ -187,7 +187,11 @@
     &copy; 2025 GanaControl - Todos los derechos reservados
   </footer>
 
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
+
   <script>
+    // Funciones del modal (mantenidas para compatibilidad)
     function abrirHistorial() {
       document.getElementById("modalHistorial").classList.remove("hidden");
       document.getElementById("modalHistorial").classList.add("flex");
