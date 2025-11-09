@@ -47,13 +47,13 @@
       <section>
         <h2 class="text-2xl font-semibold mb-5 text-gray-800">Registrar Nueva Vacuna</h2>
         <form class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <input type="text" placeholder="Nombre de la Vacuna" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="text" placeholder="Enfermedad que Previene" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="number" placeholder="Dosis (ml)" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="text" placeholder="Proveedor" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="date" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="text" placeholder="Lote de Producción" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <textarea placeholder="Observaciones" class="border p-3 rounded-lg shadow-sm col-span-2 focus:ring-2 focus:ring-green-500 focus:outline-none"></textarea>
+          <input type="text" placeholder="Nombre de la Vacuna" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-nombre">
+          <input type="text" placeholder="Enfermedad que Previene" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-enfermedad">
+          <input type="number" placeholder="Dosis (ml)" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-dosis">
+          <input type="text" placeholder="Proveedor" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-proveedor">
+          <input type="date" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-fecha">
+          <input type="text" placeholder="Lote de Producción" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-lote">
+          <textarea placeholder="Observaciones" class="border p-3 rounded-lg shadow-sm col-span-2 focus:ring-2 focus:ring-green-500 focus:outline-none vacuna-observaciones"></textarea>
           <button type="submit" class="bg-green-600 text-white py-3 rounded-xl col-span-2 hover:bg-green-700 shadow-lg transition flex items-center justify-center gap-2">
             Guardar Vacuna
           </button>
@@ -64,31 +64,31 @@
       <section>
         <h2 class="text-2xl font-semibold mb-5 text-gray-800">Registrar Vacunación Realizada</h2>
         <form class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-            <option>Seleccionar Animal (ej: G001)</option>
+          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-animal">
+            <option value="">Seleccionar Animal (ej: G001)</option>
             <option>G001</option>
             <option>G002</option>
           </select>
-          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-            <option>Seleccionar Lote de Ganado</option>
+          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-lote">
+            <option value="">Seleccionar Lote de Ganado</option>
             <option>Lote 1</option>
             <option>Lote 2</option>
           </select>
-          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-            <option>Seleccionar Vacuna</option>
+          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-vacuna">
+            <option value="">Seleccionar Vacuna</option>
             <option>Fiebre Aftosa</option>
             <option>Brucelosis</option>
           </select>
-          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-            <option>Tipo de aplicación</option>
+          <select class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-tipo">
+            <option value="">Tipo de aplicación</option>
             <option>Subcutánea</option>
             <option>Intramuscular</option>
           </select>
-          <input type="date" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="date" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="number" placeholder="Cantidad administrada (ml)" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <input type="text" placeholder="Responsable" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <textarea placeholder="Observaciones" class="border p-3 rounded-lg shadow-sm col-span-2 focus:ring-2 focus:ring-green-500 focus:outline-none"></textarea>
+          <input type="date" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-fecha-aplicacion">
+          <input type="date" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-fecha-refuerzo">
+          <input type="number" placeholder="Cantidad administrada (ml)" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-cantidad">
+          <input type="text" placeholder="Responsable" class="border p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-responsable">
+          <textarea placeholder="Observaciones" class="border p-3 rounded-lg shadow-sm col-span-2 focus:ring-2 focus:ring-green-500 focus:outline-none vacunacion-observaciones"></textarea>
           <button type="submit" class="bg-green-600 text-white py-3 rounded-xl col-span-2 hover:bg-green-700 shadow-lg transition flex items-center justify-center gap-2">
             Guardar Vacunación
           </button>
@@ -180,23 +180,31 @@
     &copy; 2025 GanaControl - Todos los derechos reservados
   </footer>
 
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
+
   <script>
+    // Funciones del modal (mantenidas para compatibilidad)
     const toggleHistorial = document.getElementById('toggleHistorial');
     const modalHistorial = document.getElementById('modalHistorial');
 
-    toggleHistorial.addEventListener('click', () => {
-      modalHistorial.classList.remove('hidden');
-      modalHistorial.classList.add('flex');
-    });
+    if (toggleHistorial) {
+      toggleHistorial.addEventListener('click', () => {
+        modalHistorial.classList.remove('hidden');
+        modalHistorial.classList.add('flex');
+      });
+    }
 
     function cerrarHistorial() {
       modalHistorial.classList.add('hidden');
       modalHistorial.classList.remove('flex');
     }
 
-    modalHistorial.addEventListener('click', function(e) {
-      if(e.target === this) cerrarHistorial();
-    });
+    if (modalHistorial) {
+      modalHistorial.addEventListener('click', function(e) {
+        if(e.target === this) cerrarHistorial();
+      });
+    }
   </script>
 
 </body>

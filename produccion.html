@@ -46,12 +46,12 @@
       <form id="formProduccion" class="space-y-4">
         <div>
           <label class="block font-semibold">Fecha</label>
-          <input type="date" class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400">
+          <input type="date" class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400 produccion-fecha">
         </div>
         <div>
           <label class="block font-semibold">Animal / Lote</label>
           <input type="text" placeholder="Ej: Vaca #12 o Lote 3"
-                 class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400">
+                 class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400 produccion-animal">
         </div>
         <div>
           <label class="block font-semibold">Tipo de Producción</label>
@@ -64,12 +64,12 @@
         <div id="campoCantidad">
           <label class="block font-semibold">Cantidad</label>
           <input type="number" placeholder="Selecciona tipo primero"
-                 class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400" disabled>
+                 class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400 produccion-cantidad" disabled>
         </div>
         <div>
           <label class="block font-semibold">Observaciones</label>
           <textarea rows="3" placeholder="Ej: Producción normal sin novedades"
-                    class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400"></textarea>
+                    class="w-full px-3 py-2 border rounded-lg focus:ring focus:ring-green-400 produccion-observaciones"></textarea>
         </div>
         <div class="flex flex-wrap gap-4 justify-center mt-6">
           <button type="submit" 
@@ -122,68 +122,70 @@
     </div>
   </div>
 
-  <!-- Script -->
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
+
   <script>
+    // Funciones específicas de producción (mantenidas)
     const toggleHistorial = document.getElementById('toggleHistorial');
     const modalHistorialProduccion = document.getElementById('modalHistorialProduccion');
 
-    function abrirHistorialProduccion() {
-      modalHistorialProduccion.classList.remove('hidden');
-      modalHistorialProduccion.classList.add('flex');
+    if (toggleHistorial) {
+      toggleHistorial.addEventListener('click', abrirHistorialProduccion);
     }
 
-    function cerrarHistorialProduccion() {
-      modalHistorialProduccion.classList.add('hidden');
-      modalHistorialProduccion.classList.remove('flex');
+    if (modalHistorialProduccion) {
+      modalHistorialProduccion.addEventListener('click', function(e) {
+        if(e.target === this) cerrarHistorialProduccion();
+      });
     }
-
-    toggleHistorial.addEventListener('click', abrirHistorialProduccion);
-
-    modalHistorialProduccion.addEventListener('click', function(e) {
-      if(e.target === this) cerrarHistorialProduccion();
-    });
 
     const tipoProduccion = document.getElementById('tipoProduccion');
     const campoCantidad = document.getElementById('campoCantidad').querySelector("input");
 
-    tipoProduccion.addEventListener("change", () => {
-      campoCantidad.disabled = false;
-      if (tipoProduccion.value === "leche") {
-        campoCantidad.placeholder = "Ej: 25 litros";
-      } else if (tipoProduccion.value === "carne") {
-        campoCantidad.placeholder = "Ej: 80 kilos";
-      } else {
-        campoCantidad.placeholder = "Selecciona tipo primero";
-        campoCantidad.disabled = true;
-      }
-    });
+    if (tipoProduccion && campoCantidad) {
+      tipoProduccion.addEventListener("change", () => {
+        campoCantidad.disabled = false;
+        if (tipoProduccion.value === "leche") {
+          campoCantidad.placeholder = "Ej: 25 litros";
+        } else if (tipoProduccion.value === "carne") {
+          campoCantidad.placeholder = "Ej: 80 kilos";
+        } else {
+          campoCantidad.placeholder = "Selecciona tipo primero";
+          campoCantidad.disabled = true;
+        }
+      });
+    }
 
     const filtroAnimalModal = document.getElementById('filtroAnimalModal');
     const filtroFechaModal = document.getElementById('filtroFechaModal');
     const filtroCantidadModal = document.getElementById('filtroCantidadModal');
     const listaProduccionModal = document.getElementById('listaProduccionModal');
-    const itemsModal = listaProduccionModal.getElementsByTagName('li');
+    
+    if (listaProduccionModal) {
+      const itemsModal = listaProduccionModal.getElementsByTagName('li');
 
-    function filtrarHistorialModal() {
-      const animal = filtroAnimalModal.value.toLowerCase();
-      const fecha = filtroFechaModal.value;
-      const cantidadMin = filtroCantidadModal.value ? parseInt(filtroCantidadModal.value) : 0;
+      function filtrarHistorialModal() {
+        const animal = filtroAnimalModal.value.toLowerCase();
+        const fecha = filtroFechaModal.value;
+        const cantidadMin = filtroCantidadModal.value ? parseInt(filtroCantidadModal.value) : 0;
 
-      for (let i = 0; i < itemsModal.length; i++) {
-        const texto = itemsModal[i].textContent.toLowerCase();
-        const cumpleAnimal = animal === "" || texto.includes(animal);
-        const cumpleFecha = fecha === "" || texto.includes(fecha);
-        const match = texto.match(/(\d+)\s+(litros|kilos)/);
-        const cantidad = match ? parseInt(match[1]) : 0;
-        const cumpleCantidad = cantidadMin === 0 || cantidad >= cantidadMin;
+        for (let i = 0; i < itemsModal.length; i++) {
+          const texto = itemsModal[i].textContent.toLowerCase();
+          const cumpleAnimal = animal === "" || texto.includes(animal);
+          const cumpleFecha = fecha === "" || texto.includes(fecha);
+          const match = texto.match(/(\d+)\s+(litros|kilos)/);
+          const cantidad = match ? parseInt(match[1]) : 0;
+          const cumpleCantidad = cantidadMin === 0 || cantidad >= cantidadMin;
 
-        itemsModal[i].style.display = (cumpleAnimal && cumpleFecha && cumpleCantidad) ? "" : "none";
+          itemsModal[i].style.display = (cumpleAnimal && cumpleFecha && cumpleCantidad) ? "" : "none";
+        }
       }
-    }
 
-    filtroAnimalModal.addEventListener('keyup', filtrarHistorialModal);
-    filtroFechaModal.addEventListener('change', filtrarHistorialModal);
-    filtroCantidadModal.addEventListener('keyup', filtrarHistorialModal);
+      if (filtroAnimalModal) filtroAnimalModal.addEventListener('keyup', filtrarHistorialModal);
+      if (filtroFechaModal) filtroFechaModal.addEventListener('change', filtrarHistorialModal);
+      if (filtroCantidadModal) filtroCantidadModal.addEventListener('keyup', filtrarHistorialModal);
+    }
   </script>
 
 </body>
