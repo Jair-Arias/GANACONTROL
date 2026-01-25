@@ -28,17 +28,24 @@
     <div class="bg-white/90 w-4/5 max-w-4xl rounded-2xl p-8 text-gray-800 shadow-xl mb-12">
       <h2 class="text-xl font-semibold mb-4 text-gray-900">Registrar Tipo de Alimento</h2>
       <form class="grid grid-cols-2 gap-4">
-        <input type="text" placeholder="Nombre del alimento (ej. Heno, Forraje)" class="p-2 border rounded">
-        <input type="text" placeholder="Proveedor" class="p-2 border rounded">
-        <input type="number" placeholder="Cantidad disponible" class="p-2 border rounded">
-        <select class="p-2 border rounded">
+        <input type="text" placeholder="Nombre del alimento (ej. Heno, Forraje)" 
+               class="p-2 border rounded alimento-nombre">
+        <input type="text" placeholder="Proveedor" 
+               class="p-2 border rounded alimento-proveedor">
+        <input type="number" placeholder="Cantidad disponible" 
+               class="p-2 border rounded alimento-cantidad">
+        <select class="p-2 border rounded alimento-unidad">
+          <option value="">Seleccionar unidad</option>
           <option>Unidad</option>
           <option>Kilos</option>
           <option>Litros</option>
           <option>Sacos</option>
         </select>
-        <textarea class="col-span-2 p-2 border rounded" placeholder="Observaciones adicionales"></textarea>
-        <button type="submit" class="col-span-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow mt-2">Guardar alimento</button>
+        <textarea class="col-span-2 p-2 border rounded alimento-observaciones" 
+                  placeholder="Observaciones adicionales"></textarea>
+        <button type="submit" class="col-span-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow mt-2">
+          Guardar alimento
+        </button>
       </form>
     </div>
 
@@ -70,6 +77,7 @@
           <input type="text" placeholder="Buscar por nombre" class="p-2 border rounded">
           <input type="text" placeholder="Proveedor" class="p-2 border rounded">
           <select class="p-2 border rounded">
+            <option>Todas las unidades</option>
             <option>Unidad</option>
             <option>Kilos</option>
             <option>Litros</option>
@@ -81,7 +89,7 @@
         <div class="grid grid-cols-3 gap-4 mb-4 hidden" id="filtrosAlimentaciones">
           <input type="text" placeholder="Buscar por animal" class="p-2 border rounded">
           <select class="p-2 border rounded">
-            <option>Filtrar por alimento</option>
+            <option>Todos los alimentos</option>
             <option>Heno</option>
             <option>Forraje</option>
             <option>Concentrado</option>
@@ -145,39 +153,43 @@
       <h2 class="text-xl font-semibold mb-4 text-gray-900">Registrar Alimentación</h2>
       <form class="grid grid-cols-2 gap-4">
 
-        <select class="p-2 border rounded">
-          <option>Seleccionar animal</option>
+        <select class="p-2 border rounded alimentacion-animal">
+          <option value="">Seleccionar animal</option>
           <option>Vaca G001</option>
           <option>Vaca G002</option>
           <option>Becerro B001</option>
           <option>Becerro B002</option>
         </select>
 
-        <select class="p-2 border rounded">
-          <option>Seleccionar alimento</option>
+        <select class="p-2 border rounded alimentacion-alimento">
+          <option value="">Seleccionar alimento</option>
           <option>Heno</option>
           <option>Forraje</option>
           <option>Concentrado</option>
           <option>Suplemento mineral</option>
         </select>
 
-        <input type="number" placeholder="Cantidad" class="p-2 border rounded">
+        <input type="number" placeholder="Cantidad" class="p-2 border rounded alimentacion-cantidad">
 
-        <select class="p-2 border rounded">
+        <select class="p-2 border rounded alimentacion-unidad">
+          <option value="">Seleccionar unidad</option>
           <option>Unidad</option>
           <option>Kilos</option>
           <option>Litros</option>
           <option>Sacos</option>
         </select>
 
-        <input type="date" class="p-2 border rounded" placeholder="Fecha de inicio">
-        <input type="date" class="p-2 border rounded" placeholder="Fecha final">
+        <input type="date" class="p-2 border rounded alimentacion-fecha-inicio" placeholder="Fecha de inicio">
+        <input type="date" class="p-2 border rounded alimentacion-fecha-fin" placeholder="Fecha final">
 
-        <input type="text" placeholder="Responsable de la alimentación" class="p-2 border rounded">
+        <input type="text" placeholder="Responsable de la alimentación" class="p-2 border rounded alimentacion-responsable">
 
-        <textarea class="col-span-2 p-2 border rounded" placeholder="Motivo de la alimentación y observaciones"></textarea>
+        <textarea class="col-span-2 p-2 border rounded alimentacion-observaciones" 
+                  placeholder="Motivo de la alimentación y observaciones"></textarea>
 
-        <button type="submit" class="col-span-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow mt-2">Registrar alimentación</button>
+        <button type="submit" class="col-span-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow mt-2">
+          Registrar alimentación
+        </button>
       </form>
     </div>
 
@@ -188,7 +200,11 @@
     &copy; 2025 GanaControl - Todos los derechos reservados
   </footer>
 
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
+
   <script>
+    // Estas funciones ahora están en app.js, pero las mantenemos por compatibilidad
     function abrirHistorial() {
       document.getElementById("modalHistorial").classList.remove("hidden");
       document.getElementById("modalHistorial").classList.add("flex");

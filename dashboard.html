@@ -103,7 +103,7 @@
     &copy; 2025 GanaControl - Todos los derechos reservados
   </footer>
 
-  <!-- Modal de Ayuda (igual) -->
+  <!-- Modal de Ayuda -->
   <div id="modalAyuda" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-50">
     <div class="bg-white w-4/5 max-w-5xl rounded-xl p-6 text-gray-800 relative shadow-2xl overflow-auto max-h-[90vh]">
       <button onclick="cerrarAyuda()" 
@@ -124,108 +124,8 @@
     </div>
   </div>
 
-  <script>
-    // Menú usuario y modal (igual que antes)
-    const userMenuBtn = document.getElementById('userMenuBtn');
-    const userMenu = document.getElementById('userMenu');
-    const abrirAyudaBtn = document.getElementById('abrirAyuda');
-    const modalAyuda = document.getElementById('modalAyuda');
-    const contenidoAyuda = document.getElementById('contenidoAyuda');
-
-    userMenuBtn.addEventListener('click', (ev) => {
-      ev.stopPropagation();
-      userMenu.classList.toggle('hidden');
-      const expanded = userMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-      userMenuBtn.setAttribute('aria-expanded', !expanded);
-    });
-
-    window.addEventListener('click', (e) => {
-      if (!userMenu.contains(e.target) && !userMenuBtn.contains(e.target)) {
-        userMenu.classList.add('hidden');
-        userMenuBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    abrirAyudaBtn.addEventListener('click', () => {
-      modalAyuda.classList.remove('hidden');
-      modalAyuda.classList.add('flex');
-      userMenu.classList.add('hidden');
-    });
-
-    function cerrarAyuda() {
-      modalAyuda.classList.add('hidden');
-      modalAyuda.classList.remove('flex');
-      contenidoAyuda.innerHTML = "<p>Selecciona un módulo para ver las instrucciones detalladas.</p>";
-    }
-
-    function mostrarAyuda(modulo) {
-      let html = "";
-      switch(modulo) {
-        case "vacunaciones":
-          html = `<h3 class="font-bold text-lg text-green-700">Vacunaciones</h3>
-                  <ul class="list-disc pl-6">
-                    <li>Registrar nuevas vacunas con nombre, enfermedad, dosis, proveedor, fecha y lote.</li>
-                    <li>Registrar vacunaciones por animal o lote con fecha, tipo de aplicación y observaciones.</li>
-                    <li>Consultar historial de vacunaciones filtrando por animal, lote o vacuna.</li>
-                  </ul>`;
-          break;
-        case "produccion":
-          html = `<h3 class="font-bold text-lg text-green-700">Producción</h3>
-                  <ul class="list-disc pl-6">
-                    <li>Registrar producción de leche o carne por animal o lote.</li>
-                    <li>Consultar historial filtrando por fecha, animal o cantidad.</li>
-                  </ul>`;
-          break;
-        case "ventas":
-          html = `<h3 class="font-bold text-lg text-green-700">Ventas</h3>
-                  <ul class="list-disc pl-6">
-                    <li>Registrar ventas con código, tipo, cantidad, valor y comprobantes.</li>
-                    <li>Consultar historial con filtros por producto, animal, fecha y estado de pago.</li>
-                  </ul>`;
-          break;
-        case "reproduccion":
-          html = `<h3 class="font-bold text-lg text-green-700">Reproducción</h3>
-                  <ul class="list-disc pl-6">
-                    <li>Registrar eventos de reproducción por animal o lote.</li>
-                    <li>Programar fechas de celo, inseminación y seguimiento de crías.</li>
-                  </ul>`;
-          break;
-        case "alimentacion":
-          html = `<h3 class="font-bold text-lg text-green-700">Alimentación</h3>
-                  <ul class="list-disc pl-6">
-                    <li>Registrar alimentación diaria por animal con tipo, cantidad y fecha.</li>
-                    <li>Consultar historial y ajustar dietas según necesidades.</li>
-                  </ul>`;
-          break;
-        case "inventario":
-          html = `<h3 class="font-bold text-lg text-green-700">Inventario</h3>
-                  <ul class="list-disc pl-6">
-                    <li>Registrar productos con código, cantidad, proveedor y fecha de ingreso.</li>
-                    <li>Consultar y actualizar inventario, registrar salidas de productos.</li>
-                  </ul>`;
-          break;
-        case "otros":
-          html = `<h3 class="font-bold text-lg text-green-700">Otros / Contactar</h3>
-                  <p>Comunícate con soporte: <a href="mailto:soporte@ganacontrol.com" class="text-blue-600 underline">soporte@ganacontrol.com</a> o +57 301 7330341.</p>`;
-          break;
-        default:
-          html = "<p>Selecciona un módulo para ver las instrucciones detalladas.</p>";
-      }
-      contenidoAyuda.innerHTML = html;
-    }
-
-    // Filtro de búsqueda
-    const searchInput = document.getElementById('searchInput');
-    const movimientosLista = document.getElementById('movimientosLista');
-    const items = movimientosLista.getElementsByTagName('li');
-    searchInput.addEventListener('keyup', function() {
-      let filtro = searchInput.value.toLowerCase();
-      for (let i = 0; i < items.length; i++) {
-        let texto = items[i].textContent.toLowerCase();
-        items[i].style.display = texto.includes(filtro) ? "" : "none";
-      }
-    });
-  </script>
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
 
 </body>
 </html>

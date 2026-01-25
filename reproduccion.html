@@ -39,30 +39,30 @@
     <div class="bg-white/90 backdrop-blur-lg w-full max-w-4xl rounded-3xl p-8 shadow-2xl border border-gray-200 text-gray-800 space-y-6">
       <h2 class="text-2xl font-semibold mb-4">Registrar Evento Reproductivo</h2>
       <form class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <select class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <option>Seleccionar Animal</option>
+        <select class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-animal">
+          <option value="">Seleccionar Animal</option>
           <option>Vaca Alfa 001</option>
           <option>Vaca Reina 102</option>
           <option>Toro Bravo 210</option>
           <option>Vaca Estrella 305</option>
         </select>
-        <select class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <option>Evento</option>
+        <select class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-evento">
+          <option value="">Evento</option>
           <option>Celo</option>
           <option>Inseminación</option>
           <option>Parto</option>
           <option>Monta</option>
         </select>
-        <input type="date" class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-        <input type="text" placeholder="Responsable" class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-        <select class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-          <option>Resultado</option>
+        <input type="date" class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-fecha">
+        <input type="text" placeholder="Responsable" class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-responsable">
+        <select class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-resultado">
+          <option value="">Resultado</option>
           <option>Positivo</option>
           <option>Negativo</option>
           <option>Pendiente</option>
         </select>
-        <input type="text" placeholder="Método utilizado (IA, monta...)" class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none">
-        <textarea class="col-span-1 sm:col-span-2 p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none" placeholder="Observaciones"></textarea>
+        <input type="text" placeholder="Método utilizado (IA, monta...)" class="p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-metodo">
+        <textarea class="col-span-1 sm:col-span-2 p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none reproduccion-observaciones" placeholder="Observaciones"></textarea>
 
         <!-- Botones -->
         <div class="col-span-1 sm:col-span-2 flex justify-center gap-4 mt-2">
@@ -135,7 +135,11 @@
     &copy; 2025 GanaControl - Todos los derechos reservados
   </footer>
 
+  <!-- AGREGAR ESTA LÍNEA -->
+  <script src="js/app.js"></script>
+
   <script>
+    // Funciones del modal (mantenidas para compatibilidad)
     function abrirHistorial() {
       document.getElementById("modalHistorial").classList.remove("hidden");
       document.getElementById("modalHistorial").classList.add("flex");
