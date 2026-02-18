@@ -3,16 +3,17 @@ const path = require('path');
 
 const app = express();
 
-// Middleware para recibir JSON
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos
 app.use(express.static(__dirname));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+const authRoutes = require('./routes/auth.routes');
+app.use('/api/auth', authRoutes);
 
-app.listen(3000, '0.0.0.0', () => {
-  console.log('Servidor activo en puerto 3000');
+// ✅ CONFIGURACIÓN CORRECTA PARA CODESPACES
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Servidor activo en puerto ${PORT}`);
 });
